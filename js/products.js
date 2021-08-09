@@ -4,3 +4,12 @@
 document.addEventListener("DOMContentLoaded", function (e) {
 
 });
+
+linkPropietarios = 'https://ferqueve.github.io/autorizo/propietarios.json'
+linkAutomoviles = 'https://ferqueve.github.io/autorizo/automoviles.json' 
+
+fetch(linkPropietarios)
+.then((response) => response.json())
+.then(propietarios => {
+    console.log(propietarios)
+});
