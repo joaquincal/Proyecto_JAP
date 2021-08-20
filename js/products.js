@@ -51,4 +51,3 @@ function cargarDatos(productos) {
     }
     document.getElementById("products__list").innerHTML = contenido;
 } 
-
