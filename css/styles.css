@@ -142,6 +142,7 @@ a.custom-card:hover {
 
 .products__container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .products__container-product {
@@ -150,8 +151,8 @@ a.custom-card:hover {
   width: fit-content;
   border-radius: 20px;
   padding: 10px;
-  max-width: 260px;
-  max-height: 350px;
+  width: 260px;
+  height: 350px;
   margin: 20px 10px 0px 20px;
 }
 
