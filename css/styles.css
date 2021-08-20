@@ -139,3 +139,48 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.products__container {
+  display: flex;
+}
+
+.products__container-product {
+  font-family: 'Raleway', serif;
+  border: 1px solid lightgrey;
+  width: fit-content;
+  border-radius: 20px;
+  padding: 10px;
+  max-width: 260px;
+  max-height: 350px;
+  margin: 20px 10px 0px 20px;
+}
+
+.product__image {
+  padding: 3px;
+  max-width: 230px;
+  border-radius: 10px;
+}
+
+.product__text {
+  margin: 2px auto 2px auto;
+}
+
+.product__cost {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.product__name {
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+}
+
+.product__line {
+  margin: 0 0 0 0;
+}
+
+.products__container-product:hover {
+  box-shadow: 0px 0px 5px 3px lightgrey;
+  transition: 0.3s;
+}

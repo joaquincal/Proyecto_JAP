@@ -34,20 +34,21 @@ var getJSONData = function(url){
         result.data = error;
         return result;
     });
-}
+} //Declaro la funcion getJSONData que se encargará de hacer el pedido de los datos del json por medio de la api fetch
 
-// let resultado = getJSONData(url).then(objeto => {
-//     cargarDatos(objeto.data)
-// })
+let resultado = getJSONData(url).then(objeto => {
+    cargarDatos(objeto.data)
+}) //Realizo el llamado de la función cargarDatos
 
-function cargarDatos(productos) {
-    let contenido = ``
-    for ( let producto of productos) {
-        contenido += `<p class="product__name">${producto.name}</p>
-        <p class="product__image">${producto.imgSrc}</p>
-        <p class="product__description">${producto.description}</p>
-        <p class="product__cost">${producto.currency}${producto.cost}</p>
-        <p class="product__soldcount">${producto.soldCount}</p>`
+function cargarDatos(products) {
+    let productContent = ``
+    for ( let product of products) {
+        productContent += `<div class="products__container-product"><p class="product__name product__text">${product.name}</p>
+        <img class="product__image" src="${product.imgSrc}">
+        <hr class"product__line">
+        <p class="product__description product__text">${product.description}</p>
+        <p class="product__cost product__text">${product.currency} ${product.cost}</p>
+        <p class="product__soldcount product__text"> Cantidad de vendidos: ${product.soldCount}</p></div>`
     }
-    document.getElementById("products__list").innerHTML = contenido;
-} 
+    document.getElementById("products__list").innerHTML = productContent;
+} //Declaro la función cargarDatos, que se encarga de pasar al HTML el contenido del json obtenido
