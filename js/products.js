@@ -36,9 +36,9 @@ var getJSONData = function(url){
     });
 }
 
-let resultado = getJSONData(url).then(objeto => {
-    cargarDatos(objeto.data)
-})
+// let resultado = getJSONData(url).then(objeto => {
+//     cargarDatos(objeto.data)
+// })
 
 function cargarDatos(productos) {
     let contenido = ``
