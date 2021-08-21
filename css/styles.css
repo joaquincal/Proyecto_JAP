@@ -140,6 +140,8 @@ a.custom-card:hover {
   color: orange;
 }
 
+/* Estilos de productos */
+
 .products__container {
   display: flex;
   flex-wrap: wrap;
@@ -186,6 +188,8 @@ a.custom-card:hover {
   transition: 0.3s;
 }
 
+/* Estilos del login */
+
 .login__container {
   display: flex;
   justify-content: center;
@@ -218,7 +222,7 @@ a.custom-card:hover {
   margin-top: 65px;
 }
 
-.text {
+.login__text {
   padding-bottom: 30px;
   text-align: center;
   font-family: sans-serif;
