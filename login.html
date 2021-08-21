@@ -14,7 +14,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
-    html, body{
+    /* html, body{
       height: 100%;
     }
 
@@ -33,19 +33,33 @@
       max-width: 330px;
       padding: 15px;
       margin: auto;
-    }
+    } */
   </style>
 </head>
-
-<body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 08/08/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+<body>
+  <div class="login__container">
+    <div class="login__container-data">
+        <div class="logo">
+            <img src="https://jovenesaprogramar.edu.uy/storage/app/media/logo-jap-2020.svg" alt="">
+        </div>
+        <form class="login__form">
+            <div class="text">Inicio de sesión</div>
+            <div class="form_section-text">
+                <input class="form__input" type="email" placeholder=" Ingresa tu correo">
+            </div>
+            <div class="form_section-text">
+                <input class="form__input" type="password" placeholder=" Escribe tu contraseña">
+            </div>
+            <div class="password-forgot">
+                <a class="form_section-link" href="">Has olvidado tu contraseña?</a>
+            </div>
+            <div class="form_section-buttons">
+                <a class="form_section-link" href="">Crea una cuenta</a>
+                <a href=""><input class="form__input-button" type="submit" value="Continuar"></a>
+            </div>
+        </form>
     </div>
-  </div>
+    </div>
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>

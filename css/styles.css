@@ -185,3 +185,91 @@ a.custom-card:hover {
   box-shadow: 0px 0px 5px 3px lightgrey;
   transition: 0.3s;
 }
+
+.login__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo {
+  width: 200px;
+  position: absolute;
+  margin-top: -400px;
+}
+
+.login__container-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(253, 253, 253);
+  width: 500px;
+  height: 600px;
+  border-radius: 25px;
+  border: 1px #138a9c solid;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 7px 2px rgba(47, 79, 79, 0.424);
+}
+
+.login__form {
+  width: fit-content;
+  margin-top: 65px;
+}
+
+.text {
+  padding-bottom: 30px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 22px;
+}
+
+.form__input {
+  border: none;
+  width: 300px;
+  height: 30px;
+  margin: 3px;
+  border-radius: 3px;
+  font-size: 17px;
+  border: 1px rgb(146, 146, 146) solid;
+}
+
+.form_section-link {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.password-forgot {
+  padding-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 3px;
+}
+
+.form_section-buttons {
+  padding-top: 15px;
+  margin: 0 3px 0 3px;
+}
+
+.form__input:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 2px rgb(0, 132, 255);
+  border: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.form__input-button {
+  float: right;
+  border: none;
+  background-color: rgb(0, 132, 255);
+  border-radius: 3px;
+  width: 130px;
+  height: 30px;
+  color: white;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.form__input-button:hover {
+  background-color: rgb(0, 109, 211);
+}
