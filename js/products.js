@@ -44,7 +44,7 @@ function cargarDatos(products) {
     let productContent = ``
     for ( let product of products) {
         productContent += `<div class="products__container-product"><p class="product__name product__text">${product.name}</p>
-        <img class="product__image" src="${product.imgSrc}">
+        <div class="image-container"><img class="product__image" src="${product.imgSrc}"></div>
         <hr class"product__line">
         <p class="product__description product__text">${product.description}</p>
         <p class="product__cost product__text">${product.currency} ${product.cost}</p>
