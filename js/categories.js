@@ -10,7 +10,8 @@ function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
     {
-        result = array.sort(function(a, b) {
+        result = array.sort(function(a, b)
+            {
             if ( a.name < b.name ){ return -1; }
             if ( a.name > b.name ){ return 1; }
             return 0;
@@ -34,6 +35,7 @@ function sortCategories(criteria, array){
 
     return result;
 }
+
 
 function showCategoriesList(){
 

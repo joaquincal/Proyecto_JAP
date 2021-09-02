@@ -16,6 +16,7 @@ loginButton.addEventListener("click", function(e){
     let email = document.getElementById("email").value;
 
     if (password != "" && email != "") {
+        localStorage.setItem("usermail", email)
         location.replace("home.html")
     }
     else {
