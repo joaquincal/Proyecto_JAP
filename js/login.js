@@ -16,7 +16,7 @@ loginButton.addEventListener("click", function(e){
     let email = document.getElementById("email").value;
 
     if (password != "" && email != "") {
-        localStorage.setItem("usermail", email)
+        localStorage.setItem("usermail", email) //Se almacena el dato ingresado en el campo "e-mail" del login 
         location.replace("home.html")
     }
     else {

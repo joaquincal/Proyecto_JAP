@@ -7,7 +7,8 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
-document.getElementById("show-mail").innerHTML += localStorage.getItem("usermail");
+document.getElementById("show-mail").innerHTML += localStorage.getItem("usermail"); //Obtiene el dato de "usermail" y se inserta dentro del elemento con el id "show-mail"
+
 
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
