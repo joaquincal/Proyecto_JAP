@@ -66,28 +66,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         var hh = date.getHours();
         var minutes = date.getMinutes();
         var seconds = date.getSeconds();
-        date = yyyy + '-' + mm + '-' + dd + ':' + hh + ':' + minutes + ':' + seconds;
+        date = yyyy + '-' + mm + '-' + dd + ' ' + hh + ':' + minutes + ':' + seconds;
         
         showComment(comentario, date);
         document.getElementById("productInfo-form").reset();
     })
-    
 
-    var starsSelector = document.querySelectorAll('.fa-star');
-    document.getElementById('starsId').addEventListener('click', evento => {
-        let obj = evento.target;
-        let score = -1;
-        if(obj.getAttribute('data-value') != null) {
-            score = obj.getAttribute('data-value');
-        }
-        if(score = -1) {
-            for(let i = 0; i < score; i++) {
-                starsSelector[i].classList.replace('far', 'fas');
-            }
-            for(let i = score; i < 5; i++) {
-                starsSelector[i].classList.replace('fas', 'far');
-            }
-        }
-    })
 });
 
