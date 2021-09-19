@@ -1,13 +1,5 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-
-// function showProductData(infoArray){
-//     for 
-// }
-
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
+    getJSONData(PRODUCT_INFO_URL).then(function(resultObj){ //Llamado de la URL del producto mediante fetch
         let productJSON = resultObj.data;
             console.log(productJSON);
             htmlContent = ` <div class="prodInfo__data"><h2 class="prodInfo__title">${productJSON.name}</h2>
@@ -21,22 +13,22 @@ document.addEventListener("DOMContentLoaded", function(e){
             </div>
             <div class="prodInfo__description-container">
             <p class="prodInfo__description">${productJSON.description}</p>
-            <p class="prodInfo__soldCount"><b>Cantidad de ventas: ${productJSON.soldCount}</b></p></div>`
+            <p class="prodInfo__soldCount"><b>Cantidad de ventas: ${productJSON.soldCount}</b></p></div>` //Asigno a la variable htmlContent todo el contenido HTML que luego será mostrado en pantalla
 
-            document.getElementById("productInfo-container").innerHTML = htmlContent;
+            document.getElementById("productInfo-container").innerHTML = htmlContent; //Muestro en pantalla el contenido antes mencionado
     });
 
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(commentsInfo){
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(commentsInfo){ //Llamado de la URL que contiene los comentarios del producto
         let comments = commentsInfo.data;
-        for(let comment of comments) {
+        for(let comment of comments) { //For que recorre le arreglo de productos
             document.getElementById("productInfo-comments").innerHTML += `<div class="prodInfo-comments">
             <p><b>${comment.user}</b> ${drawStars(comment.score)}<p>
             <p>${comment.description}<p>
-            <p style="text-align: right">${comment.dateTime}<p></div>`
+            <p style="text-align: right">${comment.dateTime}<p></div>` //Al mismo tiempo obtengo el elemento con el id "productInfo-content" y muestro en pantalla el contenido de los comentarios.
         }
     })
 
-    function drawStars(stars){
+    function drawStars(stars){ //Función que agrega las estrellas en el comentario agregado
         let number = parseInt(stars);
         let html = "";
         for(let i =1; i<=number; i++){
@@ -48,28 +40,28 @@ document.addEventListener("DOMContentLoaded", function(e){
         return html;
     }
 
-    function showComment(comentario, date) {
+    function showComment(comentario, date) { //Función que se encarga de mostrar en pantalla los datos introducidos en los controles gráficos agregados para poder comentar.
         let commentScore = document.getElementById("productInfo-select").value;
-        if(comentario != "") {
+        if(comentario != "") { //If que controla que el comentario no sea vacío
         document.getElementById("comentarios").innerHTML += `<div class="prodInfo-comments"><p><b>${localStorage.getItem("usermail")}</b> ${drawStars(commentScore)}</p><p>${comentario}</p><p style="text-align: right">${date}</p></div>`
-    } else {alert("Ingrese un comentario!")}
+    } else {alert("Ingrese un comentario!")} //Alert que se despliega si el comentario es vacío
     }
     
     console.log()
     
-    document.getElementById("commentButton").addEventListener("click", function(e) {
+    document.getElementById("commentButton").addEventListener("click", function(e) { //Función que accede al botón para enviar comentarios mediante el evento "click"
         var comentario = document.getElementById("newComment").value;
-        var date = new Date();
-        var dd = String(date.getDate()).padStart(2, '0');
-        var mm = String(date.getMonth() + 1).padStart(2, '0');
-        var yyyy = date.getFullYear();
-        var hh = date.getHours();
-        var minutes = date.getMinutes();
-        var seconds = date.getSeconds();
-        date = yyyy + '-' + mm + '-' + dd + ' ' + hh + ':' + minutes + ':' + seconds;
+        var date = new Date(); //Declaro la variable "date" como fecha
+        var dd = String(date.getDate()).padStart(2, '0'); //día de hoy
+        var mm = String(date.getMonth() + 1).padStart(2, '0'); //mes actual
+        var yyyy = date.getFullYear(); //año actual
+        var hh = date.getHours(); //hora
+        var minutes = date.getMinutes(); //minutos
+        var seconds = date.getSeconds(); //segundos
+        date = yyyy + '-' + mm + '-' + dd + ' ' + hh + ':' + minutes + ':' + seconds; //Unifico todas las separaciones de la fecha en un solo string.
         
         showComment(comentario, date);
-        document.getElementById("productInfo-form").reset();
+        document.getElementById("productInfo-form").reset(); //Se resetea el form luego de ser ejecutada la función y ser enviado el comentario.
     })
 
 });
