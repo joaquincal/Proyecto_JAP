@@ -16,9 +16,9 @@ document.getElementById("show-mail").innerHTML += `<div class="dropdown">
   <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
   <a class="dropdown-item" href="index.html" onclick="logout()">Cerrar sesión</a>
 </div>
-</div>` //Obtiene el dato de "usermail" y se inserta dentro del elemento con el id "show-mail"
+</div>` //Obtiene el dato de "usermail" y se inserta dentro del elemento con el id "show-mail" en forma de dropdown
 
-function logout(){
+function logout(){ //Funcion que remueve la informacion guardada sobre el nombre de usuario ingresado
   localStorage.removeItem("usermail");
 }
 

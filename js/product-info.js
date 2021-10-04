@@ -16,16 +16,16 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             document.getElementById("productInfo-container").innerHTML = htmlContent; //Muestro en pantalla el contenido antes mencionado
 
-            let relatedProductsIndex = productJSON.relatedProducts;            
+            let relatedProductsIndex = productJSON.relatedProducts; //La variable relatedProductsIndex contiene el arreglo con los indices de los productos relacionados            
             console.log(relatedProductsIndex);
-            getJSONData(PRODUCTS_URL).then(function(obj){
+            getJSONData(PRODUCTS_URL).then(function(obj){ //Llamado a la url de productos anidada dentro del llamado a la informacion del  producto
                 let productsArray = obj.data;
                 for(let productIndex of relatedProductsIndex){
                     document.getElementById("relatedProducts-container").innerHTML += `<div class="products__container-product relatedProducts"><p class="product__name product__text">${productsArray[productIndex].name}</p>
                     <div class="image-container"><img class="product__image" src="${productsArray[productIndex].imgSrc}"></div>
                     <hr class"product__line">
                     <p class="product__description product__text">${productsArray[productIndex].description}</p>
-                    <p class="product__cost product__text">${productsArray[productIndex].currency} ${productsArray[productIndex].cost}</p></div>`;
+                    <p class="product__cost product__text">${productsArray[productIndex].currency} ${productsArray[productIndex].cost}</p></div>`; //For que agrega al html los productos que corresponden a los indices contenidos en la el arreglo de productos relacionados
                     
                 }
             })
