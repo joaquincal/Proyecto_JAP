@@ -6,9 +6,21 @@ const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+// localStorage.getItem("usermail")
+document.getElementById("show-mail").innerHTML += `<div class="dropdown">
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  ${localStorage.getItem("usermail")}
+</button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+  <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+  <a class="dropdown-item" href="index.html" onclick="logout()">Cerrar sesión</a>
+</div>
+</div>` //Obtiene el dato de "usermail" y se inserta dentro del elemento con el id "show-mail"
 
-document.getElementById("show-mail").innerHTML += localStorage.getItem("usermail"); //Obtiene el dato de "usermail" y se inserta dentro del elemento con el id "show-mail"
-
+function logout(){
+  localStorage.removeItem("usermail");
+}
 
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";

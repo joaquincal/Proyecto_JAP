@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){ //Llamado de la URL del producto mediante fetch
         let productJSON = resultObj.data;
-            console.log(productJSON);
             htmlContent = ` <div class="prodInfo__data"><h2 class="prodInfo__title">${productJSON.name}</h2>
             <h3 class="prodInfo__cost">${productJSON.currency} ${productJSON.cost}</h3></div>
             <div class="Info-image__container">
@@ -16,7 +15,21 @@ document.addEventListener("DOMContentLoaded", function(e){
             <p class="prodInfo__soldCount"><b>Cantidad de ventas: ${productJSON.soldCount}</b></p></div>` //Asigno a la variable htmlContent todo el contenido HTML que luego será mostrado en pantalla
 
             document.getElementById("productInfo-container").innerHTML = htmlContent; //Muestro en pantalla el contenido antes mencionado
-    });
+
+            let relatedProductsIndex = productJSON.relatedProducts;            
+            console.log(relatedProductsIndex);
+            getJSONData(PRODUCTS_URL).then(function(obj){
+                let productsArray = obj.data;
+                for(let productIndex of relatedProductsIndex){
+                    document.getElementById("relatedProducts-container").innerHTML += `<div class="products__container-product relatedProducts"><p class="product__name product__text">${productsArray[productIndex].name}</p>
+                    <div class="image-container"><img class="product__image" src="${productsArray[productIndex].imgSrc}"></div>
+                    <hr class"product__line">
+                    <p class="product__description product__text">${productsArray[productIndex].description}</p>
+                    <p class="product__cost product__text">${productsArray[productIndex].currency} ${productsArray[productIndex].cost}</p></div>`;
+                    
+                }
+            })
+        });
 
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(commentsInfo){ //Llamado de la URL que contiene los comentarios del producto
         let comments = commentsInfo.data;
