@@ -481,6 +481,26 @@ margin: 13rem 1rem 0 1rem;
   flex-direction: row;
 }
 
+/* Estilos del carrito */
+
+td {
+  padding: 5px 2rem 5px 0;
+}
+
+.cartInput {
+  width: 5rem;
+}
+
+.cartContainer {
+  margin: 7rem auto;
+  width: fit-content;
+}
+
+.cartProductImage {
+  max-width: 7rem;
+  border-radius: 5px;
+}
+
 @media (device-width: 100vw) {
 
 .productInfo__image:last-child:hover {
