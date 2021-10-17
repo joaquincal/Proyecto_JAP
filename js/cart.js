@@ -50,11 +50,11 @@ function updatePrice(cost, count, id, currency) {
     if (currency == "UYU") {
         cost /= 40;
     }
-    document.getElementById(id).innerHTML = parseInt(cost) * count; //Asigno el valor del costo multiplicado por la cantidad de articulos al elemento con id correspondiente.
+    document.getElementById(id).innerHTML = parseFloat(cost) * count; //Asigno el valor del costo multiplicado por la cantidad de articulos al elemento con id correspondiente.
     let subtotalArray = document.getElementsByClassName("subtotal"); //Obtengo la lista de elementos con clase "subtotal".
     let subtotal = 0;
     for (sub of subtotalArray) {
-        subtotal += parseInt(sub.innerHTML);
+        subtotal += parseFloat(sub.innerHTML);
     } //Recorro la lista de elementos con clase "subtotal" y sumo los precios individuales a una variable "subtotal".
     finalCartPrice(subtotal) //llamo a la funcion finalCartPrice para calcular el precio final de los articulos y el envio.
     return(subtotal);
