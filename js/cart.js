@@ -39,7 +39,6 @@ function shippingCost(value) {
         shipCost += parseInt(sub.innerHTML) * percentage;
     }
     document.getElementById('shippingPrice').innerHTML = shipCost;
-    return(shipCost);
 }
 
 function finalCartPrice(price) {
@@ -56,6 +55,5 @@ function updatePrice(cost, count, id, currency) {
     for (sub of subtotalArray) {
         subtotal += parseFloat(sub.innerHTML);
     } //Recorro la lista de elementos con clase "subtotal" y sumo los precios individuales a una variable "subtotal".
-    finalCartPrice(subtotal) //llamo a la funcion finalCartPrice para calcular el precio final de los articulos y el envio.
-    return(subtotal);
+    finalCartPrice(subtotal) //llamo a la funcion finalCartPrice para mostrar el precio final de los articulos y el envio.
 }

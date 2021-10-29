@@ -40,19 +40,69 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      
+
       <p id="show-mail"></p>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+  <div class="profile_data-container">
+    <br><br>
+    <h2 style="text-align: center;">Información personal</h2>
+    <br><br>
+    <div class="form_wrap">
+      <form onsubmit="saveProfileData()">
+        <div class="profile_form">
+          <div class="col-md-6 mb-3">
+            <label for="profileName">Nombre</label>
+            <input type="text" class="form-control" id="profileName" placeholder="" value="">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="profileLastname">Apellido/s</label>
+            <input type="text" class="form-control" id="profileLastname" placeholder="" value="">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="profileAge">Edad</label>
+            <input type="number" class="form-control" id="profileAge" placeholder="" value="">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="profileMail">Email</label>
+            <input type="email" class="form-control" id="profileMail" placeholder="" value="">
+          </div>
+
+          <div class="col-md-6 mb-3 profilePhone">
+            <label for="profilePhone">Teléfono de contacto</label>
+            <input type="number" class="form-control" id="profilePhone" placeholder="" value="">
+          </div>
+
+          <div class="col-md-6 mb-3 profilePhone">
+            <label for="profilePhone">Foto de perfil</label>
+            <div class="profilePic">
+              <img src="" id="profilePhoto" alt="">
+            </div>
+
+            <!-- <input type="file" class="form-control" id="" onchange=""> -->
+
+            <input type="file" id="photoInput" style="display: none;" onchange="loadImg()">
+            <input type="button" value="Buscar..." class="btn btn-info" onclick="document.getElementById('photoInput').click();" />
+
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary profileButton"
+          style="margin-left: 50%; transform: translate(-50%, 0);">GUARDAR
+          DATOS</button>
+      </form>
+
+
     </div>
   </div>
-  <footer class="text-muted bg-light">
+
+
+
+  <footer class="text-muted bg-light" style="margin-top: 10rem;">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
