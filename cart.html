@@ -55,59 +55,114 @@
   </nav>
 
   <div class="cartContainer">
-    <h3 style="text-align: center;">Carrito</h3>
-    <br>
-    <table id="cartTable">
-      <thead>
-        <tr>
-          <th>Producto: </th>
-          <th></th>
-          <th>Costo: </th>
-          <th>Cantidad: </th>
-          <th>Subtotal: </th>
-        </tr>
-      </thead>
-    </table>
-    <br>
-    <h4>Tipo de envío: </h4>
-    <br>
-    <div class="shippingOptions">
-      <div>
-        <input type="radio" id="premium" name="shipping" value="15" onchange="shippingCost(this.value)">
-        <label for="premium">Premium 2 a 5 días (15% del precio)</label>
-      </div>
-      <div>
-        <input type="radio" id="express" name="shipping" value="7" onchange="shippingCost(this.value)">
-        <label for="express">Express 5 a 8 días (7% del precio)</label>
-      </div>
-      <div>
-        <input type="radio" id="standard" name="shipping" value="5" onchange="shippingCost(this.value)">
-        <label for="standard">Standard 12 a 15 días (5% del precio)</label>
-      </div>
-    </div>
-    <hr>
-    <div class="shippingData">
-      <h4>Dirección de envío: </h4>
+    <form action="">
+      <h3 style="text-align: center;">Carrito</h3>
       <br>
-      <div>
-        <p style="display: inline;">Calle: <input type="text"></p>
-        <p style="display: inline;">Número: <input type="text"></p>
-      </div>
+      <table id="cartTable">
+        <thead>
+          <tr>
+            <th>Producto: </th>
+            <th></th>
+            <th>Costo: </th>
+            <th>Cantidad: </th>
+            <th>Subtotal: </th>
+          </tr>
+        </thead>
+      </table>
       <br>
-      <div>
-        <p>Esquina: <input type="text"></p>
-      </div>
-    </div>
-    <hr>
-    <div class="cartCosts">
-      <h4>Costos</h4>
+      <h4>Tipo de envío: </h4>
       <br>
-      <p><b>Subtotal: </b>USD <span id="finalProductsPrice">0</span></p>
-      <p><b>Costos de envío: </b>USD <span id="shippingPrice">0</span> </p>
-      <p><b>Total: </b>USD <span id="totalPrice">0</span> </p>
-    </div>
-    <hr>
-    <button type="button" class="btn btn-primary btn-block">Proceder a la compra</button>
+      <div class="shippingOptions">
+        <div>
+          <input type="radio" id="premium" name="shipping" value="15" onchange="shippingCost(this.value)" required>
+          <label for="premium">Premium 2 a 5 días (15% del precio)</label>
+        </div>
+        <div>
+          <input type="radio" id="express" name="shipping" value="7" onchange="shippingCost(this.value)">
+          <label for="express">Express 5 a 8 días (7% del precio)</label>
+        </div>
+        <div>
+          <input type="radio" id="standard" name="shipping" value="5" onchange="shippingCost(this.value)">
+          <label for="standard">Standard 12 a 15 días (5% del precio)</label>
+        </div>
+      </div>
+      <hr>
+      <div class="shippingData">
+        <h4>Dirección de envío: </h4>
+        <br>
+        <div style="display: grid; grid-template-columns: 100%;">
+          <div>
+            <label style="width: 80px;" for="cartStreet">Calle:</label>
+            <input id="cartStreet" type="text" required>
+          </div>
+          <div>
+            <label style="width: 80px;" for="cartAdress">Dirección:</label>
+            <input id="cartAdress" type="text" required>
+          </div>
+          <div>
+            <label style="width: 80px;" for="cartCorner">Esquina:</label>
+            <input id="cartCorner" type="text" required></p>
+          </div>
+        </div>
+        
+      </div>
+      <hr>
+      <div class="cartCosts">
+        <h4>Costos</h4>
+        <br>
+        <p><b>Subtotal: </b>USD <span id="finalProductsPrice">0</span></p>
+        <p><b>Costos de envío: </b>USD <span id="shippingPrice">0</span> </p>
+        <p><b>Total: </b>USD <span id="totalPrice">0</span> </p>
+      </div>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+        Elegir método de pago
+      </button>
+      <hr>
+
+
+
+      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Seleccione un método de pago</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div>
+                <input type="radio" id="pay-bank" name="pay" value="bank" onchange="paymentDisplay(this.value)">
+                <label for="pay-bank">Depósito bancario</label>
+              </div>
+              <div id="bank-info" class="invisible" style="grid-template-columns: 100%; gap: 5px;">
+                <input type="text" placeholder="Nombre completo..." id="bankName">
+                <input type="number" placeholder="Número de cuenta" id="bankAccount">
+              </div>
+              <div>
+                <input type="radio" id="pay-card" name="pay" value="card" onchange="paymentDisplay(this.value)">
+                <label for="pay-card">Tarjeta de crédito/débito</label>
+              </div>
+              <div id="card-info" class="invisible" style="grid-template-columns: 100%; gap: 5px;">
+                <input id="cardName" type="text" placeholder="Nombre del titular...">
+                <input id="cardNumber" type="number" placeholder="Número de Tarjeta">
+                <div>
+                  <input type="date" id="card-date">
+                  <label for="card-date">Fecha de vencimiento</label>
+                </div>
+                <input id="cardCVV" type="number" placeholder="CVV">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                onclick="paymentClose()">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Finalizar Compra</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 
   <div id="spinner-wrapper">

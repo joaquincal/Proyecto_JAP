@@ -500,6 +500,14 @@ td {
   border-radius: 5px;
 }
 
+.invisible {
+  display: none;
+}
+
+.visible {
+  display: grid;
+}
+
 /*Estilos del perfil*/
 
 .profile_data-container {
